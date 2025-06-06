@@ -1,7 +1,12 @@
 import "./bird-list.css";
 import BirdCard from "../BirdCard/BirdCard";
 
-function BirdList({ birdList, handleRepeatClick, incrementScore }) {
+function BirdList({
+  birdList,
+  handleRepeatClick,
+  incrementScore,
+  shuffleBirdList,
+}) {
   return (
     <div className="bird-list">
       {birdList.length === 0 && <div className="loading">Loading...</div>}
@@ -13,6 +18,7 @@ function BirdList({ birdList, handleRepeatClick, incrementScore }) {
               key={bird.id}
               handleRepeatClick={handleRepeatClick}
               incrementScore={incrementScore}
+              shuffleBirdList={shuffleBirdList}
             />
           );
         })}

@@ -29,6 +29,10 @@ function App() {
     getBirds();
   }, []);
 
+  function shuffleBirdList() {
+    setBirdList(birdList.sort(() => 0.5 - Math.random()));
+  }
+
   function handleRepeatClick() {
     console.log("You lose");
     if (score > highScore) {
@@ -51,6 +55,7 @@ function App() {
         birdList={birdList}
         handleRepeatClick={handleRepeatClick}
         incrementScore={incrementScore}
+        shuffleBirdList={shuffleBirdList}
       />
     </>
   );
