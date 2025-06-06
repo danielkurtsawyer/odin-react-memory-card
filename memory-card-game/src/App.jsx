@@ -29,8 +29,12 @@ function App() {
     getBirds();
   }, []);
 
-  function handleDoubleClick() {
+  function handleRepeatClick() {
     console.log("You lose");
+  }
+
+  function incrementScore() {
+    setScore(score + 1);
   }
 
   return (
@@ -39,7 +43,11 @@ function App() {
         <div className="title">Bird Memory Game</div>
         <ScoreBoard score={score} highScore={highScore} />
       </header>
-      <BirdList birdList={birdList} handleDoubleClick={handleDoubleClick} />
+      <BirdList
+        birdList={birdList}
+        handleRepeatClick={handleRepeatClick}
+        incrementScore={incrementScore}
+      />
     </>
   );
 }

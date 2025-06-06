@@ -1,15 +1,17 @@
 import "./bird-card.css";
 import { useState } from "react";
 
-function BirdCard({ bird, handleDoubleClick }) {
+function BirdCard({ bird, handleRepeatClick, incrementScore }) {
   const [clicked, setClicked] = useState(false);
   const name = bird.name;
   const image = bird.images[0];
   function handleBirdClick() {
     if (clicked) {
-      handleDoubleClick();
+      handleRepeatClick();
+    } else {
+      setClicked(true);
+      incrementScore();
     }
-    setClicked(true);
   }
   return (
     <div className="bird-card" onClick={handleBirdClick}>
