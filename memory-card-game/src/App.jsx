@@ -29,13 +29,17 @@ function App() {
     getBirds();
   }, []);
 
+  function handleDoubleClick() {
+    console.log("You lose");
+  }
+
   return (
     <>
       <header>
         <div className="title">Bird Memory Game</div>
         <ScoreBoard score={score} highScore={highScore} />
       </header>
-      <BirdList birdList={birdList} />
+      <BirdList birdList={birdList} handleDoubleClick={handleDoubleClick} />
     </>
   );
 }

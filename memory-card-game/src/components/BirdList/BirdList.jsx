@@ -1,7 +1,7 @@
 import "./bird-list.css";
 import BirdCard from "../BirdCard/BirdCard";
 
-function BirdList({ birdList }) {
+function BirdList({ birdList, handleDoubleClick }) {
   console.log(birdList, Array.isArray(birdList));
 
   return (
@@ -10,7 +10,13 @@ function BirdList({ birdList }) {
       {birdList.length > 0 &&
         birdList.map((bird) => {
           console.log(bird);
-          return <BirdCard bird={bird} key={bird.id} />;
+          return (
+            <BirdCard
+              bird={bird}
+              key={bird.id}
+              handleDoubleClick={handleDoubleClick}
+            />
+          );
         })}
     </div>
   );
