@@ -39,6 +39,7 @@ function App() {
       setHighScore(score);
     }
     setScore(0);
+    // reset BirdCard clicked states to False
   }
 
   function incrementScore() {
