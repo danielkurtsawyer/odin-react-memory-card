@@ -31,6 +31,10 @@ function App() {
 
   function handleRepeatClick() {
     console.log("You lose");
+    if (score > highScore) {
+      setHighScore(score);
+    }
+    setScore(0);
   }
 
   function incrementScore() {
