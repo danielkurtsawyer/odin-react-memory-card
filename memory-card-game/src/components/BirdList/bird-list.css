@@ -1,0 +1,15 @@
+.bird-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  column-gap: 24px;
+  row-gap: 36px;
+}
+
+.loading {
+  font-family: "Patrick Hand";
+  font-size: 36px;
+  grid-column: 1 / right;
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+.bird-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 300px;
+  font-family: "Patrick Hand";
+  font-size: 20px;
+
+  background-color: #f4faff;
+  padding: 24px;
+  border-radius: 12px;
+  /* https://smoothshadows.com/#djEsMSw1LDAuMSw4LDgsNCwjMDMwNzEyLCNmM2Y0ZjYsI2ZmZmZmZiwy */
+  box-shadow: 0px 0px 0px rgba(3, 7, 18, 0.02), 1px 1px 1px rgba(3, 7, 18, 0.04),
+    1px 3px 3px rgba(3, 7, 18, 0.06), 3px 5px 5px rgba(3, 7, 18, 0.08),
+    4px 8px 8px rgba(3, 7, 18, 0.1);
+  transition: 250ms;
+}
+
+.bird-card:hover {
+  background: lightpink;
+  cursor: pointer;
+  /* https://smoothshadows.com/#djEsMSw1LDAuMSwxNiwxNiw4LCMwMzA3MTIsI2YzZjRmNiwjZmZmZmZmLDI%3D */
+  box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.02), 1px 3px 3px rgba(3, 7, 18, 0.04),
+    3px 6px 6px rgba(3, 7, 18, 0.06), 5px 10px 10px rgba(3, 7, 18, 0.08),
+    8px 16px 16px rgba(3, 7, 18, 0.1);
+  transform: translatey(-5px);
+}
+
+.bird-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
