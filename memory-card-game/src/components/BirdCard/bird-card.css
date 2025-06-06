@@ -14,11 +14,11 @@
   box-shadow: 0px 0px 0px rgba(3, 7, 18, 0.02), 1px 1px 1px rgba(3, 7, 18, 0.04),
     1px 3px 3px rgba(3, 7, 18, 0.06), 3px 5px 5px rgba(3, 7, 18, 0.08),
     4px 8px 8px rgba(3, 7, 18, 0.1);
-  transition: 250ms;
+  transition: transform 250ms, background-color 250ms;
 }
 
 .bird-card:hover {
-  background: lightpink;
+  background-color: lightpink;
   cursor: pointer;
   /* https://smoothshadows.com/#djEsMSw1LDAuMSwxNiwxNiw4LCMwMzA3MTIsI2YzZjRmNiwjZmZmZmZmLDI%3D */
   box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.02), 1px 3px 3px rgba(3, 7, 18, 0.04),
