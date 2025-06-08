@@ -1,5 +1,6 @@
 .bird-list {
   width: 100%;
+  max-width: 1272px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   justify-content: center;
