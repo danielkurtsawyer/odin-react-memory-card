@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BirdList from "./components/BirdList/BirdList";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
+import birdIcon from "./assets/bird.svg";
 
 import "./App.css";
 
@@ -49,7 +50,10 @@ function App() {
   return (
     <>
       <header>
-        <div className="title">Bird Memory Game</div>
+        <div className="title-logo">
+          <img src={birdIcon} alt="" />
+          <div className="title">Bird Memory Game</div>
+        </div>
         <ScoreBoard score={score} highScore={highScore} />
       </header>
       <BirdList
