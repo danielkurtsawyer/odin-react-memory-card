@@ -7,6 +7,7 @@ import "./App.css";
 
 function App() {
   const [birdList, setBirdList] = useState([]);
+  const [birdClicked, setBirdClicked] = useState({});
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
@@ -21,7 +22,14 @@ function App() {
       }
     );
     const birdData = await response.json();
-    setBirdList(birdData.entities);
+    const birdList = birdData.entities;
+    const birdClicked = {};
+    birdList.forEach((bird) => {
+      birdClicked[bird.id] = false;
+    });
+    setBirdList(birdList);
+    setBirdClicked(birdClicked);
+    console.log(birdClicked);
   }
 
   useEffect(() => {
@@ -34,13 +42,28 @@ function App() {
     setBirdList(birdList.sort(() => 0.5 - Math.random()));
   }
 
+  function handleBirdClick(id) {
+    shuffleBirdList();
+    if (birdClicked[id]) {
+      handleRepeatClick();
+    } else {
+      const tempBirdClicked = birdClicked;
+      tempBirdClicked[id] = true;
+      incrementScore();
+      setBirdClicked(tempBirdClicked);
+    }
+  }
+
   function handleRepeatClick() {
-    console.log("You lose");
+    console.table(birdClicked);
     if (score > highScore) {
       setHighScore(score);
     }
     setScore(0);
-    // reset BirdCard clicked states to False
+    // reset birdClicked clicked states to False for each id
+    const tempBirdClicked = birdClicked;
+    Object.keys(birdClicked).forEach((key) => (tempBirdClicked[key] = false));
+    setBirdClicked(tempBirdClicked);
   }
 
   function incrementScore() {
@@ -56,12 +79,7 @@ function App() {
         </div>
         <ScoreBoard score={score} highScore={highScore} />
       </header>
-      <BirdList
-        birdList={birdList}
-        handleRepeatClick={handleRepeatClick}
-        incrementScore={incrementScore}
-        shuffleBirdList={shuffleBirdList}
-      />
+      <BirdList birdList={birdList} handleBirdClick={handleBirdClick} />
     </>
   );
 }

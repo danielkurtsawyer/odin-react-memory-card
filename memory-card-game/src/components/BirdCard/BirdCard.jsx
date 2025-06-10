@@ -1,26 +1,11 @@
 import "./bird-card.css";
-import { useState } from "react";
 
-function BirdCard({
-  bird,
-  handleRepeatClick,
-  incrementScore,
-  shuffleBirdList,
-}) {
-  const [clicked, setClicked] = useState(false);
+function BirdCard({ bird, handleBirdClick }) {
   const name = bird.name;
   const image = bird.images[0];
-  function handleBirdClick() {
-    shuffleBirdList();
-    if (clicked) {
-      handleRepeatClick();
-    } else {
-      setClicked(true);
-      incrementScore();
-    }
-  }
+  const id = bird.id;
   return (
-    <div className="bird-card" onClick={handleBirdClick}>
+    <div className="bird-card" onClick={() => handleBirdClick(id)}>
       <img src={image} />
       <div className="bird-name">{name}</div>
     </div>
