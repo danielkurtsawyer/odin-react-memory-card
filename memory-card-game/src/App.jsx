@@ -27,6 +27,8 @@ function App() {
     birdList.forEach((bird) => {
       birdClicked[bird.id] = false;
     });
+    // shuffle bird list
+    birdList.sort(() => 0.5 - Math.random());
     setBirdList(birdList);
     setBirdClicked(birdClicked);
     console.log(birdClicked);
