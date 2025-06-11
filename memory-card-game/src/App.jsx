@@ -30,8 +30,8 @@ function App() {
     // shuffle bird list
     birdList.sort(() => 0.5 - Math.random());
     setBirdList(birdList);
+    console.log(birdList.length);
     setBirdClicked(birdClicked);
-    console.log(birdClicked);
   }
 
   useEffect(() => {
@@ -46,30 +46,49 @@ function App() {
 
   function handleBirdClick(id) {
     shuffleBirdList();
+
+    console.log(score);
     if (birdClicked[id]) {
       handleRepeatClick();
     } else {
       const tempBirdClicked = birdClicked;
       tempBirdClicked[id] = true;
-      incrementScore();
       setBirdClicked(tempBirdClicked);
+      incrementScore();
     }
   }
 
   function handleRepeatClick() {
-    console.table(birdClicked);
-    if (score > highScore) {
-      setHighScore(score);
+    if (score < birdList.length) {
+      console.log("Good try, but you clicked a card twice");
     }
-    setScore(0);
+
     // reset birdClicked clicked states to False for each id
-    const tempBirdClicked = birdClicked;
-    Object.keys(birdClicked).forEach((key) => (tempBirdClicked[key] = false));
-    setBirdClicked(tempBirdClicked);
+    resetBirdClicked();
   }
 
   function incrementScore() {
-    setScore(score + 1);
+    setScore((score) => score + 1);
+    if (score + 1 === birdList.length) {
+      console.log("Nice job! You got all the cards");
+
+      resetBirdClicked(true);
+    }
+  }
+
+  function resetBirdClicked(win = false) {
+    if (win) {
+      setHighScore(birdList.length);
+    } else {
+      if (score > highScore) {
+        setHighScore(score);
+      }
+    }
+
+    setScore(0);
+    const tempBirdClicked = birdClicked;
+    Object.keys(birdClicked).forEach((key) => (tempBirdClicked[key] = false));
+    setBirdClicked(tempBirdClicked);
   }
 
   return (
